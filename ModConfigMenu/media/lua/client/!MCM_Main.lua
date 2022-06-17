@@ -204,6 +204,13 @@ function MainOptions:create()
 	local function AddPage(pagestr)
 		self:addPage(pagestr)
 		self.CurrY = 23		-- Mhmmm, tasty
+
+		self:addScrollBars(true)
+	end
+
+	local function ClosePage()
+		local BottomPageMargin = 100
+		self.mainPanel:setScrollHeight(self.CurrY + BottomPageMargin)
 	end
 
 	local function LoadOptionTable(OptionTable)
@@ -231,11 +238,14 @@ function MainOptions:create()
 		end
 	end
 
+	ClosePage()
+
 	-- Load all extra tab mods
 	for _, OptionTable in ipairs(ModOptionTables) do
 		if OptionTable.bExtraTab then
 			AddPage(OptionTable.DisplayStr)
 			LoadOptionTable(OptionTable)
+			ClosePage()
 		end
 	end
 
