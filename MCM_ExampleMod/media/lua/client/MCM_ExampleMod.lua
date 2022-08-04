@@ -1,7 +1,7 @@
 -- Variables that we will manipulate
 local BoxEnable = true
 
-local BoxText = "Sample Text"
+local BoxText = "MCM Example Mod"
 
 local BoxWidth = 10
 local BoxHeight = 10
